@@ -13,6 +13,15 @@
   }
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover, a:focus {
+  color: inherit;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
