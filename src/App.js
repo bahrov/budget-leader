@@ -1,9 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import { StyledEngineProvider } from '@mui/material/styles'
 import { ModeContext } from './contexts/mode-context'
 import Router from './Router/Router'
 import { AuthProvider } from './contexts/auth-context'
+import { DbProvider } from './contexts/db-context'
 
 function App() {
   const localMode = localStorage.getItem('mode')
@@ -17,9 +18,11 @@ function App() {
     <StyledEngineProvider injectFirst>
       <ModeContext.Provider value={value}>
         <AuthProvider>
-          <div className={mode}>
-            <Router />
-          </div>
+          <DbProvider>
+            <div className={mode}>
+              <Router />
+            </div>
+          </DbProvider>
         </AuthProvider>
       </ModeContext.Provider>
     </StyledEngineProvider>
